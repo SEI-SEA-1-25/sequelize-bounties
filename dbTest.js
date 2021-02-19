@@ -38,28 +38,51 @@ async function creatingBounty() {
     }
 }
 
-creatingBounty()
+// creatingBounty()
 
 // READING
 
-async function readingBounties() {
+async function reading() {
     try {
         // const bounties = await db.bounty.findAll()
         // bounties.forEach(bounty => {
         //     console.log(bounty.name)
         // })
-        const hunters = await db.hunter.findAll({
+        // const hunters = await db.hunter.findAll({
+        //     where: {
+        //         active: true
+        //     }
+        // })
+        // console.log(hunters)
+        const hanSolo = await db.bounty.findOne({
             where: {
-                active: true
+                name: "Han Solo"
             }
         })
-        console.log(hunters)
+        // const soloHunters = await hanSolo.getHunters()
+        // console.log(soloHunters)
+        // const bobbaFett = await db.hunter.findOne({
+        //     where: {
+        //         name: "Bobba Fett"
+        //     }
+        // })
+        // const bobbaBounties = await bobbaFett.getBounty()
+        // console.log(bobbaBounties)
+        const dengar = await db.hunter.findOne({
+            where: {
+                name: "Dengar"
+            }
+        })
+        // hanSolo.addHunters(bobbaFett)
+        // hanSolo.addHunters(dengar)
+        const dengarBounties = await dengar.getBounty()
+        console.log(dengarBounties)
     } catch (err) {
         console.log(err)
     }
 }
 
-// readingBounties()
+reading()
 
 // UPDATING
 
