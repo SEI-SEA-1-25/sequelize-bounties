@@ -1,4 +1,4 @@
-# Mongo Bounty Hunters
+# Sequelize Bounty Hunters
 
 ## Intergalactic Bounty Hunter Database
 You've been going to meetup events and networking. You've been telling everyone you're so excited to get a dev job that you'll take _any job_.
