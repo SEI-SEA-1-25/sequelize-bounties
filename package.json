@@ -1,0 +1,23 @@
+{
+  "name": "sequelize-bounties",
+  "version": "1.0.0",
+  "description": "## Intergalactic Bounty Hunter Database You've been going to meetup events and networking. You've been telling everyone you're so excited to get a dev job that you'll take _any job_.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darrengp/sequelize-bounties.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darrengp/sequelize-bounties/issues"
+  },
+  "homepage": "https://github.com/darrengp/sequelize-bounties#readme",
+  "dependencies": {
+    "pg": "^8.5.1",
+    "sequelize": "^6.5.0"
+  }
+}
