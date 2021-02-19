@@ -14,7 +14,7 @@ async function createBounty() {
       }
 }
 // createBounty()
-// Make a hunter with a name of Bobba Fett, a client of Jabba the Hut, and an active of true.
+// Make a hunter with a name of Boba Fett, a client of Jabba the Hut, and an active of true.
 async function createHunter() {
       try {
             await db.hunters.create({
@@ -99,4 +99,79 @@ async function deleteDengar() {
 // deleteDengar()
 
 // Ok recreate Dengar. The deletion was just for practice. We'll actually need him later.
-createDengar()
+// createDengar()
+
+// Look up Han Solo and save him to a variable. Look up Boba Fett and assign him to a variable too. Associate the two with hanSolo.addHunters(bobaFett)
+async function findHan() {
+      try {
+            const hanSolo = await db.bounties.findOne({
+                  where: {name:'Han Solo'}
+            })
+            const bobaFett = await db.hunters.findOne({
+                  where: {name:'Boba Fett'}
+            })
+            await hanSolo.addHunters(bobaFett)
+      } catch (error) {
+            console.log(error)
+      }
+}
+// findHan()
+// Look up Han Solo, save him to a variable. Look up his hunters with hanSolo.getHunters() and save the result to a variable, then log that variable.
+async function hansHunters() {
+      try {
+            const hanSolo = await db.bounties.findOne({
+                  where: {name:'Han Solo'}
+            })
+            const hansHunters = await hanSolo.getHunters({
+                  where: {bountyId:1}
+            })
+            console.log(hansHunters)
+      } catch (error) {
+            console.log(error)
+      }
+}
+// hansHunters()
+// // Look up Boba Fett, save him to a variable. Look up his bounty with bobaFett.getBounty(), and log that variable.
+async function findBoba() {
+      try {
+            const bobaFett = await db.hunters.findOne({
+                  where: {name:'Boba Fett'}
+            })
+            const bobasBounty = await bobaFett.getBounty()
+            console.log(bobasBounty.name)
+      } catch (error) {
+            console.log(error)
+      }
+}
+// findBoba()
+// // Add Dengar to Han's hunters, the same way we did in step 1.
+async function addDengar() {
+      try {
+            const hanSolo = await db.bounties.findOne({
+                  where: {name:'Han Solo'}
+            })
+            const dengar = await db.hunters.findOne({
+                  where: {name:'Dengar'}
+            })
+            await hanSolo.addHunters(dengar)
+      } catch (error) {
+            console.log(error)
+      }
+}
+// addDengar()
+// // Repeat step 2, and the list should now include both Boba Fett and Dengar.
+// hansHunters()
+
+// // Repeat step 3, but with Dengar instead of Boba Fett.
+async function findDengar() {
+      try {
+            const dengar = await db.hunters.findOne({
+                  where: {name:'Dengar'}
+            })
+            const dengarsBounty = await dengar.getBounty()
+            console.log(dengarsBounty.name)
+      } catch (error) {
+            console.log(error)
+      }
+}
+findDengar()
