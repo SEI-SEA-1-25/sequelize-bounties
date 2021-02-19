@@ -40,29 +40,69 @@ creating ();
 async function reading () {
     try {
     
-    //PROB 4
-    const allBounties = await db.bounty.findAll()
-    //console.log(allBounties)
+        // //PROB 4
+        // const allBounties = await db.bounty.findAll()
+        // //console.log(allBounties)
 
-    //PROB 5
-    const allHunters = await db.hunter.findAll()
-    //console.log(allHunters)
+        // //PROB 5
+        // const allHunters = await db.hunter.findAll()
+        // //console.log(allHunters)
 
-    //PROB 6
-    const activeHunters = await db.hunter.findAll({
-        where: {
-            active: true
-        }
-    })
-    // console.log(activeHunters)
-    
+        // //PROB 6
+        // const activeHunters = await db.hunter.findAll({
+        //     where: {
+        //         active: true
+        //     }
+        // })
+        // // console.log(activeHunters)
+
+        const hanSolo = await db.bounty.findOne({
+            where: {
+                name: 'Han Solo'
+            }
+        })
+        // console.log(hanSolo)
+        const bobbaFett = await db.hunter.findOne({
+            where: {
+                name: 'Bobba Fett'
+            }
+        })
+
+        const dengar = await db.hunter.findOne({
+            where: {
+                name: 'Dengar'
+            }
+        })
+        // console.log(dengar)
+        // console.log(bobbaFett)
+
+        await hanSolo.addHunters(bobbaFett)
+
+        const hansHunters = await hanSolo.getHunters()
+        // console.log(hansHunters)
+
+        const bobbasBounties = await bobbaFett.getBounty();
+        // console.log(bobbasBounties)
+
+        await hanSolo.addHunters(dengar)
+
+        const dengarBounty = await dengar.getBounty();
+        // console.log(dengarBounty)
+
+        //  NOTE NOTE NOTE
+        //  I forgot the "await" my first time writing the code on this one, and for some reason even after I 
+        //  change it it still would't work.  Strange.
+        // const dengarsBounties = await dengar.getBounty();
+        // console.log(dengarsBounties + 'test test test')
+
+
 
     }catch(error){
      console.log(error)   
     }
 }
 
-// reading ();
+reading ();
 
 // PROB 6
 async function updating () {
@@ -75,6 +115,8 @@ async function updating () {
             name: "Han Solo"
         }
     })
+
+    
     console.log(updateBounty)
     }catch(error){
     }
@@ -100,3 +142,10 @@ async function destroying () {
 }
 
 // destroying();
+
+
+
+
+// Answering Questions 
+
+
