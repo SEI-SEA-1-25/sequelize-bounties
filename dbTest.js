@@ -1,7 +1,9 @@
 const models = require('./models')
 
 
-const mkBounty = async () => {
+ee// const mkBounty = async () => {
+const crud1 = async () => {
+
    models.bounty.create({
       name: 'Hans Solo',
       wantedFor: 'owing money',
@@ -10,10 +12,12 @@ const mkBounty = async () => {
     })
 }
 
-mkBounty()
+crud1()
 
 
-const mkHunter = async () => {
+// const mkHunter = async () => {
+const crud2 = async () => {
+
    models.bounty.findOrCreate({
       name: 'Boba Fett',
       client: 'Jabba El Hut',
@@ -21,4 +25,4 @@ const mkHunter = async () => {
     })
 }
 
-mkHunter()
+crud2()
