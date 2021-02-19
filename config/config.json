@@ -2,6 +2,6 @@
   "development": {
     "database": "sequelize_bounties",
     "host": "127.0.0.1",
-    "dialect": "sequelize"
+    "dialect": "postgresql"
   }
 }

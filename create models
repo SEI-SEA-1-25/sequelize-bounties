@@ -1,0 +1,6 @@
+create models
+
+$ sequelize model:generate --name=bounties --attributes name:text,wantedFor:text,reward:integer,captured:boolean
+$ sequelize model:generate --name=hunters --attributes name:text,client:text,active:boolean
+
+const createdBounty = await db.owner.create(newBounty, { include: [db.bounty] }),
