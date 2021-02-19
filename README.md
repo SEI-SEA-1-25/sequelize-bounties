@@ -35,7 +35,7 @@ Make a dbTest.js file to run the following steps from. After you finish each ste
 1. Make a hunter with a name of Dengar, a client of Mercurial Swift, and an active of false. Try to do this using findOrCreate (knowing that there isn't one to find, and that sequelize will create it).
 1. Find all bounties, assign them to a variable, and console.log them.
 1. Find all hunters with active = true, assign them to a variable, and console.log them.
-1. Modify Han Solo to have a captured of true. This will involve looking up the record, assigning it to a variable, modifying its property, and calling `.save()` on it.
+1. Modify Han Solo to have a captured of true.
 1. Delete Dengar. Nobody remembers this guy anyway.
 1. Ok recreate Dengar. The deletion was just for practice. We'll actually need him later.
 
