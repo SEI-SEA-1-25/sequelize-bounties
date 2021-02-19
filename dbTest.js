@@ -1,3 +1,4 @@
+// const { INTEGER } = require("sequelize/types");
 const bounty_hunters_db = require("./models");
 
 ///create Bounty Files
@@ -31,7 +32,7 @@ async function createHunter() {
     console.log("🔥🔥🔥", error);
   }
 }
-createHunter();
+// createHunter();
 
 ///Find all Bounties
 async function findAllBounties() {
@@ -108,3 +109,44 @@ async function removeHunter() {
   }
 }
 // removeHunter();
+
+///Associate Han to Bobba & assign var
+
+// async function findHan() {
+//   const HanSolo = await bounty_hunters_db.bounty.findOne({
+//     where: {
+//       name: "Han Solo",
+//     },
+//   });
+//   console.log(HanSolo);
+// }
+// findHan();
+
+// async function findBobba() {
+//   hanSolo.addHunters(bobbaFett);
+//   const BobbaFett = await bounty_hunters_db.hunter.findOne({
+//     where: {
+//       name: "Bobba Fett",
+//     },
+//   });
+//   console.log(BobbaFett);
+// }
+// findBobba();
+async function associateHanToBobba() {
+  try {
+    const hanSolo = await bounty_hunters_db.bounty.findOne({
+      where: {
+        name: "Han Solo",
+      },
+    });
+    const bobbaFett = await bounty_hunters_db.hunter.findOne({
+      where: {
+        name: "Bobba Fett",
+      },
+    });
+    await hanSolo.addHunters(bobbaFett);
+  } catch (error) {
+    console.log(error);
+  }
+}
+associateHanToBobba();

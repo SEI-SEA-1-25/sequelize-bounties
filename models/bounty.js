@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class bounty extends Model {
     /**
@@ -11,16 +9,20 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.bounty.hasMany(models.hunter);
     }
-  };
-  bounty.init({
-    name: DataTypes.TEXT,
-    reward: DataTypes.INTEGER,
-    wantedFor: DataTypes.TEXT,
-    captured: DataTypes.BOOLEAN
-  }, {
-    sequelize,
-    modelName: 'bounty',
-  });
+  }
+  bounty.init(
+    {
+      name: DataTypes.TEXT,
+      reward: DataTypes.INTEGER,
+      wantedFor: DataTypes.TEXT,
+      captured: DataTypes.BOOLEAN,
+    },
+    {
+      sequelize,
+      modelName: "bounty",
+    }
+  );
   return bounty;
 };
