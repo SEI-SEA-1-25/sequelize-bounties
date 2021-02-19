@@ -48,7 +48,7 @@ async function findAllBounties(){
 // Find all hunters with active = true, assign them to a variable, and console.log them.
 async function findActiveHunters(){
     try{
-        const hunters = await models.hunter.findOne({
+        const hunters = await models.hunter.findAll({
             where: {
                 active: true
             }
@@ -66,7 +66,7 @@ async function modifyCaptured (){
             captured: true},{
                 where: {
                     
-                    captured: null
+                    captured: false
                 }
             }
         )
@@ -81,7 +81,7 @@ async function deleteDanger(){
     try{
         const hunter = await models.hunter.destroy({
             where:{
-                id: 'Danger'
+                name: 'Danger'
             }
         })
     }catch(error){
@@ -89,4 +89,18 @@ async function deleteDanger(){
     }
 }
 //deleteDanger()
+
 // Ok recreate Dengar. The deletion was just for practice. We'll actually need him later.
+const associations1 = async()=> {
+    const hanSolo = await models.bounty.findOne({
+        where:{
+            name: 'Hand Solo'
+        }
+    })
+    const bobbaFett = await models.hunter.findOne({
+        where:{
+            name: 'Bobba Fett'
+        }
+    })
+
+}
