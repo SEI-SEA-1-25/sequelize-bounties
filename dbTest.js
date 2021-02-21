@@ -4,6 +4,7 @@ const db = require("./models")
 // catch (error) {
 //   console.log(error)
 // }
+//BASIC CRUD
 //CREATE 
 async function creating() {
     try {
@@ -85,3 +86,40 @@ async function destroying(){
 
 }
 // destroying()
+
+
+//USING ASSOCITATIONS
+
+async function associating() {
+    try {
+        // const hanSolo = await db.bounty.findOne({where: {name: "Han Solo"}})
+        // const bobbaFett = await db.hunter.findOne({where: {name: "Bobba Fett"}})
+        // hanSolo.addHunters(bobbaFett)
+
+        // const hanSolo = await db.bounty.findOne({where: {name: "Han Solo"}})
+        // const hanSoloHunters = await hanSolo.getHunters()
+        // console.log(hanSoloHunters)
+
+        // const bobbaFett = await db.hunter.findOne({where: {name: "Bobba Fett"}})
+        // const bobbaBounty = await bobbaFett.getBounty()
+        // console.log(bobbaBounty)
+
+        // const hanSolo = await db.bounty.findOne({where: {name: "Han Solo"}})
+        // const denGar = await db.hunter.findOne({where: {name: "Dengar"}})
+        // hanSolo.addHunters(denGar)
+
+        // const hanSolo = await db.bounty.findOne({where: {name: "Han Solo"}})
+        // const hanSoloHunters = await hanSolo.getHunters()
+        // console.log(hanSoloHunters)
+
+        // const denGar = await db.hunter.findOne({where: {name: "Dengar"}})
+        // const denGarBounty = await denGar.getBounty()
+        // console.log(denGarBounty)
+
+    } 
+    catch (error) {
+      console.log(error)
+    }
+
+}
+// associating()
